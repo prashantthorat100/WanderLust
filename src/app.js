@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.model");
 const path = require("path");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate")
 
 const app = express();
 app.set("view engine", "ejs");
@@ -56,5 +57,11 @@ app.put("/Listing/:id", async(req,res)=>{
     res.redirect(`/Listing/${id}`);
 })
 
+// delete Route
+app.delete("/Listing/:id",async (req,res)=>{
+    let {id} = req.params;
+    await Listing.findByIdAndDelete(id);
+    res.redirect("/Listing");
+})
 
 module.exports = app;
