@@ -28,7 +28,7 @@ app.get("/Listing", async (req, res) => {
 
 //new Route
 app.get("/Listing/new", (req, res) => {
-  res.render("listings/new.ejs");
+  res.render("listings/new.ejs"); 
 });
 
 //Show Route

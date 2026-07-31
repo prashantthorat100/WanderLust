@@ -1,32 +1,85 @@
-<!DOCTYPE html>
+<% layout("/layouts/boilerplate") %>
+<!-- <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WanderLust-EDIT</title>
-</head>
-<body>
+  </head>
+  <body> -->
+
+<div class="row mt-5">
+  <div class="col-8 offset-2">
     <h3>Edit your Listings</h3>
     <form method="post" action="/Listing/<%= listing._id %>?_method=PUT">
-        <label for="title">EDIT Title:</label>
-        <input type="text" value="<%= listing.title %>" name="listing[title]"><br>
+      <div class="mb-3">
+        <label class="form-label" for="title">EDIT Title:</label>
+        <input
+          class="form-control"
+          type="text"
+          value="<%= listing.title %>"
+          name="listing[title]"
+        />
+      </div>
 
-        <label for="description">EDIT Description:</label>
-        <textarea name="listing[description]" id="description"><%= listing.description %></textarea><br>
+      <div class="mb-3">
+        <label class="form-label" for="description">EDIT Description:</label>
+        <textarea
+          class="form-control"
+          name="listing[description]"
+          id="description"
+        >
+<%= listing.description %></textarea
+        >
+      </div>
 
-        <label for="image">EDIT Image Url:</label>
-        <input type="text" value="<%= listing.image.url %>"  name="listing[image.url]"><br>
+      <div class="mb-3">
+        <label class="form-label" for="image">EDIT Image Url:</label>
+        <input
+          class="form-control"
+          type="text"
+          value="<%= listing.image.url %>"
+          name="listing[image.url]"
+        />
+      </div>
 
-        <label for="price">EDIT Price:</label>
-        <input type="number" value="<%= listing.price %>"  name="listing[price]"><br>
+      <div class="row">
+        <div class="mb-3 col-4">
+        <label class="form-label" for="price">EDIT Price:</label>
+        <input
+          class="form-control"
+          type="number"
+          value="<%= listing.price %>"
+          name="listing[price]"
+        />
+      </div>
 
-        <label for="location">EDIT Location:</label>
-        <input type="text" value="<%= listing.location %>"  name="listing[location]"><br>
+      <div class="mb-3 col-8">
+        <label class="form-label" for="country">EDIT Country:</label>
+        <input
+          class="form-control"
+          type="text"
+          value="<%= listing.country %>"
+          name="listing[country]"
+        />
+      </div>
+      </div>
 
-        <label for="country">EDIT Country:</label>
-        <input type="text" value="<%= listing.country %>"  name="listing[country]"><br>
+      <div class="mb-3">
+        <label class="form-label" for="location">EDIT Location:</label>
+        <input
+          class="form-control"
+          type="text"
+          value="<%= listing.location %>"
+          name="listing[location]"
+        />
+      </div>
 
-        <button>Click to EDIT</button>
+      
+
+      <button class="edit-btn btn btn-secondary mb-5">Click to EDIT</button>
     </form>
-</body>
-</html>
+  </div>
+</div>
+<!-- </body>
+</html> -->
