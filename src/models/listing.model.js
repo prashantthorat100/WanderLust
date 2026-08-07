@@ -1,15 +1,17 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const listingSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
   },
-  description: String,
+  description: {
+    type: String,
+  },
   image: {
     filename: {
-        type: String,
-        default: "listingimage"
+      type: String,
+      default: "listingimage",
     },
     url: {
       type: String,
@@ -26,6 +28,6 @@ const listingSchema = mongoose.Schema({
   country: String,
 });
 
-const Listing = mongoose.model("Listing", listingSchema)
+const Listing = mongoose.model("Listing", listingSchema);
 
 module.exports = Listing;

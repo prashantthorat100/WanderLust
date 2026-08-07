@@ -11,7 +11,7 @@
 <div class="row mt-5">
   <div class="col-8 offset-2">
     <h3>Edit your Listings</h3>
-    <form method="post" action="/Listing/<%= listing._id %>?_method=PUT">
+    <form class="needs-validation" method="post" action="/Listing/<%= listing._id %>?_method=PUT" novalidate>
       <div class="mb-3">
         <label class="form-label" for="title">EDIT Title:</label>
         <input
@@ -19,7 +19,9 @@
           type="text"
           value="<%= listing.title %>"
           name="listing[title]"
+          required
         />
+        <div class="invalid-feedback">Title is required.</div>
       </div>
 
       <div class="mb-3">
@@ -28,9 +30,11 @@
           class="form-control"
           name="listing[description]"
           id="description"
+          required
         >
 <%= listing.description %></textarea
         >
+        <div class="invalid-feedback">add small description</div>
       </div>
 
       <div class="mb-3">
@@ -40,6 +44,7 @@
           type="text"
           value="<%= listing.image.url %>"
           name="listing[image.url]"
+          required
         />
       </div>
 
@@ -51,7 +56,9 @@
           type="number"
           value="<%= listing.price %>"
           name="listing[price]"
+          required
         />
+        <div class="invalid-feedback">Price is required.</div>
       </div>
 
       <div class="mb-3 col-8">
@@ -61,7 +68,9 @@
           type="text"
           value="<%= listing.country %>"
           name="listing[country]"
+          required
         />
+        <div class="invalid-feedback">Country is required.</div>
       </div>
       </div>
 
@@ -72,7 +81,9 @@
           type="text"
           value="<%= listing.location %>"
           name="listing[location]"
+          required
         />
+        <div class="invalid-feedback">Location is required.</div>
       </div>
 
       
