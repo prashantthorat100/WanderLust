@@ -44,6 +44,9 @@ app.get("/Listing/:id", wrapAsync(async (req, res) => {
 app.post(
   "/Listing",
   wrapAsync(async (req, res, next) => {
+    if(!req.body.listing){
+      throw new ExpressError(400,"Send Valid Data For Listing")
+    }
     const newListing = new Listing(req.body.listing);
     console.log(req.body.listing);
 
@@ -74,13 +77,14 @@ app.delete("/Listing/:id", wrapAsync(async (req, res) => {
   res.redirect("/Listing");
 }));
 
-
+// random route PAGE NOT FOUND
 app.use((req,res,next)=>{
   next(new ExpressError(404, "Page Not Found"))
 })
 app.use((err, req, res, next) => {
   let {statusCode=500, message="Something Went wrong"} =err;
-  res.status(statusCode).send(message);
+  res.status(statusCode).render("error.ejs", {message:message});
+  // res.status(statusCode).send(message);
   // res.send("Something went wrong");
 });
 
